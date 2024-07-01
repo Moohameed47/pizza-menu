@@ -1,11 +1,14 @@
-function Pizza({ pizza, key }) {
+function Pizza({ pizzaObj }) {
+  console.log(pizzaObj);
   return (
-    <div className='col-lg-4' key={key}>
-      <img src={pizza.image_url} alt='' />
-      <h2>{pizza.product_name}</h2>
-      <p>Brand: {pizza.brands}</p>
-    </div>
+    <li className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}>
+      <img src={pizzaObj.photoName} alt={pizzaObj.name} />
+      <div>
+        <h3>{pizzaObj.name}</h3>
+        <p>{pizzaObj.ingredients}</p>
+        <span>{pizzaObj.soldOut ? "SOLD OUT" : pizzaObj.price}</span>
+      </div>
+    </li>
   );
 }
-
 export default Pizza;

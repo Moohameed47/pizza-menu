@@ -4,11 +4,11 @@ import Menu from "../Menu/Menu";
 function App() {
   return (
     <>
-      <Header />
-
-      <Menu />
-
-      <Footer />
+      <div className='container'>
+        <Header />
+        <Menu />
+        <Footer />
+      </div>
     </>
   );
 }

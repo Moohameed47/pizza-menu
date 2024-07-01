@@ -1,7 +1,9 @@
 function Header() {
   return (
     <>
-      <h1 className='text-center text-decoration-underline text-success'>Fast React Pizza Project.</h1>
+      <header className='header'>
+        <h1>Fast React Pizza Project.</h1>
+      </header>
     </>
   );
 }

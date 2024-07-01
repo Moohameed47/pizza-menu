@@ -1,16 +1,21 @@
 import React, { useState, useEffect } from "react";
-
+import Order from "../Order/Order";
 function Footer() {
-  const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTime(new Date().toLocaleTimeString());
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
-
-  return <footer className='text-center fw-bold h1 my-5'>{currentTime}. We're currently open</footer>;
+  const hour = new Date().getHours();
+  const openHour = 12;
+  const closeHour = 22;
+  const isOpen = hour >= openHour && hour <= closeHour;
+  return (
+    <footer className='footer'>
+      {isOpen ? (
+        <Order closeHour={closeHour} openHour={openHour} />
+      ) : (
+        <p>
+          We're happy to welcome you between {openHour}:00 and {closeHour}:00.
+        </p>
+      )}
+    </footer>
+  );
 }
 
 export default Footer;
